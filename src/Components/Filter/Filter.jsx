@@ -1,30 +1,29 @@
 import React from 'react';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../redux/phoneBook/phoneBookActions';
+import { filterContact } from '../../redux/phoneBook/phoneBookActions';
+import { getFilter } from '../../redux/phoneBook/selectors';
+import styles from './Filter.module.css';
 
 const Filter = () => {
-	const dispatch = useDispatch();
-	const [filter, setFilter] = useState('');
+  const dispatch = useDispatch();
+  const filter = useSelector(getFilter);
 
-	const handleChange = e => {
-		setFilter(e.target.value);
-		dispatch(actions.filterContact(e.target.value));
-	};
+  const handleChange = (e) => {
+    dispatch(filterContact(e.target.value));
+  };
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		//		dispatch(actions.filterContact(filter));
-	};
-
-	return (
-		<input
-			type='text'
-			placeholder='Type to filter contacts'
-			value={filter}
-			onChange={handleChange}
-		></input>
-	);
+  return (
+    <label className={styles.filter}>
+      <span>filter</span>
+      <input
+        className={styles.input}
+        type="text"
+        placeholder="Type to filter contacts"
+        value={filter}
+        onChange={handleChange}
+      />
+    </label>
+  );
 };
 
 export default Filter;

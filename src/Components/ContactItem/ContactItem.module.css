@@ -1,0 +1,27 @@
+.contactItem {
+  display: flex;
+  border: 0px solid black;
+  box-shadow: 0px 5px 10px rgb(49, 48, 48);
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  align-items: center;
+}
+
+.text {
+  flex: 1;
+}
+
+.button {
+  background-color: #ffa3a3;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ffadad;
+}
